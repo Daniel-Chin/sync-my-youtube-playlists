@@ -57,13 +57,11 @@ def renameLazy(src: str, dest: str):
         os.rename(src, dest)
 
 def cleanTitle(title: str) -> str:
-    return title.replace(
-        '/', '_', 
-    ).replace(
-        '\\', '_', 
-    ).replace(
-        '|', '_', 
-    ).strip()
+    allergy = r'<>:"/\|?*'
+    x = title.strip()
+    for c in allergy:
+        x = x.replace(c, '_')
+    return x
 
 def reindexFiles():
     print('Reindexing files...')
