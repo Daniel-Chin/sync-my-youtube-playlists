@@ -1,4 +1,7 @@
 *
 !*.py
 !.gitignore
+!pyproject.toml
+!*.md
+!*.fish
 my_secrets.py
