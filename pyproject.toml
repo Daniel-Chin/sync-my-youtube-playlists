@@ -4,10 +4,10 @@ version = "0.1.0"
 description = "sync-my-youtube-playlists"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
 
 [dependency-groups]
 shared = [
+    "yt-dlp>=2025.10.22",
 ]
 dev = [
     "textual-dev>=1.8.0",

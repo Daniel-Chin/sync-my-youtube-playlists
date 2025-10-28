@@ -1,4 +1,5 @@
 yt-dlp 'https://www.youtube.com/playlist?list=LL' \
+    --playlist-start 0 \
     --skip-download \
     --dump-json \
     --write-info-json \
