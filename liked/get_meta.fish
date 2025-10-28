@@ -6,6 +6,7 @@ yt-dlp 'https://www.youtube.com/playlist?list=LL' \
     # --cookies ~/temp/cookies.txt \
     --cookies ~/temp/cookies.firefox-private.txt \
     # --cookies-from-browser firefox \
+    2> ./err.txt \
     | jq -r '{
         id: .id,
         title: .title,
