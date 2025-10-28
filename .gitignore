@@ -3,5 +3,7 @@
 !.gitignore
 !pyproject.toml
 !*.md
+!liked/
 !*.fish
+!prompt_and_examples.json
 my_secrets.py
