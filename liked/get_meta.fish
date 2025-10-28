@@ -24,4 +24,4 @@ yt-dlp 'https://www.youtube.com/playlist?list=LL' \
         asr: .asr,
         audio_channels: .audio_channels
     }' \
-    > ./liked_meta.json
+    > ./meta.json
