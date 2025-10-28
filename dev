@@ -1,0 +1,4 @@
+#!/usr/bin/env fish
+
+uv sync --only-group daniel --reinstall-package gpt-arbiter-human-in-loop
+uv-daniel-run textual run classify_music_or_video.py --dev

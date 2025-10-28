@@ -6,4 +6,5 @@
 !liked/
 !*.fish
 !prompt_and_examples.json
+!dev
 my_secrets.py
