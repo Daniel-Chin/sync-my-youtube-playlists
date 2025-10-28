@@ -5,3 +5,25 @@ description = "sync-my-youtube-playlists"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
+
+[dependency-groups]
+dev = [
+    "textual-dev>=1.8.0",
+]
+normal = [
+    "gpt-arbiter-human-in-loop",
+]
+daniel = [
+    { include-group = "normal" },
+    { include-group = "dev" },
+]
+
+[tool.uv]
+default-groups = ["normal"]
+conflicts = [[{ group = "normal" }, { group = "daniel" }]]
+
+[tool.uv.sources]
+gpt-arbiter-human-in-loop = [
+    { git = "https://github.com/Daniel-Chin/GPT-Arbiter-Human-in-Loop.git", group = "normal" },
+    { path = "/home/dan/gpt-arbiter-human-in-loop", group = "daniel" },
+]
