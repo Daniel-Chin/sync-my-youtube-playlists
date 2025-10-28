@@ -7,15 +7,19 @@ requires-python = ">=3.12"
 dependencies = []
 
 [dependency-groups]
+shared = [
+]
 dev = [
     "textual-dev>=1.8.0",
 ]
 normal = [
+    { include-group = "shared" },
     "gpt-arbiter-human-in-loop",
 ]
 daniel = [
-    { include-group = "normal" },
+    { include-group = "shared" },
     { include-group = "dev" },
+    "gpt-arbiter-human-in-loop",
 ]
 
 [tool.uv]
