@@ -1,18 +1,21 @@
 import json
 import random
 
-from gpt_arbiter_human_in_loop import UI, ArbiterDummy
+from gpt_arbiter_human_in_loop import ArbiterHiLUI, ArbiterDummy
 
-META = './liked/meta.json'
+META = './liked/meta-enriched.jsonl'
 PROMPT_AND_EXAMPLES_FILENAME = './liked/prompt_and_examples.json'
 RW_JSON_PATH = './liked/classifications.json'
 LAMBDA = 20
 MODEL = 'gpt-5-nano'
 
-def main():
+def MetaLoader():
     with open(META, 'r', encoding='utf-8') as f:
-        meta = json.load(f)
-    d = { x['id']: x for x in meta }
+        for line in f:
+            yield json.loads(line)
+
+def main():
+    d = { x['id']: x for x in MetaLoader() }
     all_ids = [*d.keys()]
     random.shuffle(all_ids) # i.i.d. is important
     def idToClassifiee(id_: str) -> str:
@@ -42,9 +45,9 @@ def main():
             duration=duration      [:60],
         ), indent=2, ensure_ascii=False)
 
-    ui = UI(
+    ui = ArbiterHiLUI(
         arbiter=ArbiterDummy(),
-        prompt_and_examples_filename='./prompt_and_examples.json',
+        prompt_and_examples_filename=PROMPT_AND_EXAMPLES_FILENAME,
         all_ids=all_ids,
         idToClassifiee=idToClassifiee,
         rw_json_path=RW_JSON_PATH,
