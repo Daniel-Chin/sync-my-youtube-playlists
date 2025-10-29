@@ -9,10 +9,16 @@ RW_JSON_PATH = './liked/classifications.json'
 LAMBDA = 20
 MODEL = 'gpt-5-nano'
 
+# import os
+# os.remove(RW_JSON_PATH)
+
 def MetaLoader():
     with open(META, 'r', encoding='utf-8') as f:
         for line in f:
             yield json.loads(line)
+
+def singleLine(s: str) -> str:
+    return ' '.join(s.split())
 
 def main():
     d = { x['id']: x for x in MetaLoader() }
@@ -20,16 +26,16 @@ def main():
     random.shuffle(all_ids) # i.i.d. is important
     def idToClassifiee(id_: str) -> str:
         entry = d[id_]
-        
-        title = entry['title'] or ''
-        channel = entry['channel'] or ''
+
+        title       = entry['title'      ] or ''
+        channel     = entry['channel'    ] or ''
         description = entry['description'] or ''
-        categories = entry['categories'] or []
-        chapters = entry['chapters'] or []
-        duration = entry['duration'] or 0
+        categories  = entry['categories' ] or []
+        chapters    = entry['chapters'   ] or []
+        duration    = entry['duration'   ] or 0
 
         categories = '; '.join(categories)
-        chapters = [x['title'] for x in chapters]
+        chapters = '; '.join([x['title'] for x in chapters])
         h = duration // 3600
         m = duration // 60 - h * 60
         s = duration - h * 3600 - m * 60
@@ -38,12 +44,12 @@ def main():
         duration = duration.removeprefix('0 m ')
 
         return json.dumps(dict(
-            title=title            [:60],
-            channel=channel        [:60],
-            categories=categories  [:60],
-            description=description[:60],
-            chapters=chapters      [:60],
-            duration=duration      [:60],
+            title      =singleLine(title      )[:60],
+            channel    =singleLine(channel    )[:60],
+            categories =singleLine(categories )[:60],
+            description=singleLine(description)[:60],
+            chapters   =singleLine(chapters   )[:60],
+            duration   =singleLine(duration   )[:60],
         ), indent=2, ensure_ascii=False)
 
     ui = ArbiterHiLUI(
