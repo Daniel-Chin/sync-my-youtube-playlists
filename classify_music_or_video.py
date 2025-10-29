@@ -20,12 +20,13 @@ def main():
     random.shuffle(all_ids) # i.i.d. is important
     def idToClassifiee(id_: str) -> str:
         entry = d[id_]
-        title = entry['title']
-        channel = entry['channel']
-        description = entry['description']
-        categories = entry['categories']
-        chapters = entry['chapters']
-        duration = entry['duration']
+        
+        title = entry['title'] or ''
+        channel = entry['channel'] or ''
+        description = entry['description'] or ''
+        categories = entry['categories'] or []
+        chapters = entry['chapters'] or []
+        duration = entry['duration'] or 0
 
         categories = '; '.join(categories)
         chapters = [x['title'] for x in chapters]
