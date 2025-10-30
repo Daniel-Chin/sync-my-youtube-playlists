@@ -14,12 +14,12 @@ dev = [
 ]
 normal = [
     { include-group = "shared" },
-    "gpt-arbiter-human-in-loop",
+    "gpt-arbiter-human-in-loop==0.1.1",
 ]
 daniel = [
     { include-group = "shared" },
     { include-group = "dev" },
-    "gpt-arbiter-human-in-loop",
+    "gpt-arbiter-human-in-loop==0.1.1",
 ]
 
 [tool.uv]
