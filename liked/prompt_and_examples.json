@@ -1,6 +1,326 @@
 {
   "file_path": "./liked/prompt_and_examples.json",
-  "prompt": "## Instruction\nDetermine if the YouTube video is primarily music. Respond with a SINGLE WORD immediately without thinking: \"Yes\" or \"No\".\n\n## Examples\n{EXAMPLES}\n\n## Input\n{CLASSIFIEE}\n\nIs it music? Reply with one word only: \"Yes\" or \"No\".",
+  "prompt": "## Instruction\nDetermine if the YouTube video is duration-wise primarily music. Respond with a SINGLE WORD immediately without thinking: \"Yes\" or \"No\".\n\n## Examples\n{EXAMPLES}\n\n## Input\n{CLASSIFIEE}\n\nIs it music? Reply with one word only: \"Yes\" or \"No\".",
   "examples": [
+    {
+      "question": "{\n  \"title\": \"16 \u3042\u304d\u3084\u307e\u3046\u306b \u77e5\u7565\u7e26\u6a2a\",\n  \"channel\": \"La Ratonera de Nazrin\",\n  \"categories\": \"Entertainment\",\n  \"description\": \"Si les interesa mas contenido sobre touhou project unanse a nuestro grupo de discord, subimos musica, juegos, mangas doujin y demas contenido sobre touhou. La Ratonera de Nazrin: https://discord.gg/r6\",\n  \"chapters\": \"\",\n  \"duration\": \"2 m 19 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": "touhou project is likely music."
+    },
+    {
+      "question": "{\n  \"title\": \"Rhythm Quest - Sneak Peek #13\",\n  \"channel\": \"DDRKirby(ISQ)\",\n  \"categories\": \"Gaming\",\n  \"description\": \"Wishlist on Steam: https://store.steampowered.com/app/1635640/Rhythm_Quest/ Rhythm Quest is an upcoming 2-button chiptune music game being developed by DDRKirby(ISQ). Learn more at https://rhythmquest\",\n  \"chapters\": \"\",\n  \"duration\": \"2 m 9 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"How does THE MODULIN work? - DIY Music Instrument\",\n  \"channel\": \"Wintergatan\",\n  \"categories\": \"Music\",\n  \"description\": \"Support Wintergatan: - Patreon \u25ba https://patreon.com/Wintergatan - Youtube membership \u25ba https://bit.ly/4cQVM7C Marble Machine Engineering Discord Server: https://discord.com/invite/7aSFJA6bkH Video ed\",\n  \"chapters\": \"\",\n  \"duration\": \"8 m 8 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": "this technical documentation is primarily nonMusic."
+    },
+    {
+      "question": "{\n  \"title\": \"How Super Smash Bros. Music Sets a Tone for the Series\",\n  \"channel\": \"8-bit Music Theory\",\n  \"categories\": \"Gaming\",\n  \"description\": \"In this video I take a look at the overall tone that gets set throughout (most of) the Super Smash Bros. series' music. There are a LOT of similarities between the music of Melee, SSB4, and the new Su\",\n  \"chapters\": \"\",\n  \"duration\": \"10 m 33 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": "8-bit mucis theory videos are mostly narrations, so primarily not music."
+    },
+    {
+      "question": "{\n  \"title\": \"Factory Fan Bass \u2502 \u5de5\u5834\u6247\u98a8\u6a5f\u30d9\u30fc\u30b9\",\n  \"channel\": \"ELECTRONICOS FANTASTICOS!\",\n  \"categories\": \"People & Blogs\",\n  \"description\": \"Factory Fan Bass: By attaching a disk with holes to the fan, it converts blinks of lights to electric signals and generates sound from a bass amplifier. Different numbers of holes can generate a music\",\n  \"chapters\": \"\",\n  \"duration\": \"1 m 12 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": "This could have been good but unfortunately the musicality is not high enough."
+    },
+    {
+      "question": "{\n  \"title\": \"Computer Accompaniment\",\n  \"channel\": \"Roger Dannenberg\",\n  \"categories\": \"Science & Technology\",\n  \"description\": \"This is a demonstration of a Computer Accompaniment system created in 1985 with Cherry Lane, a music software publishing company. The machine is a Commodore Amiga. Pitch detection is accomplished by a\",\n  \"chapters\": \"\",\n  \"duration\": \"2 m 50 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": "This tech demo does not emphasize on musicality."
+    },
+    {
+      "question": "{\n  \"title\": \"Rhythm Hell\",\n  \"channel\": \"Louie Zong\",\n  \"categories\": \"Film & Animation\",\n  \"description\": \"polyrhythm game\",\n  \"chapters\": \"\",\n  \"duration\": \"48 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": "not only interesting but also musical"
+    },
+    {
+      "question": "{\n  \"title\": \"The Musical Evolution of Rainbow Road\",\n  \"channel\": \"8-bit Music Theory\",\n  \"categories\": \"Gaming\",\n  \"description\": \"In this video I take a look at the musical evolution of one of the Mario Kart series' most iconic tracks. TWITTER: https://twitter.com/8bitMusicTheory PATREON: https://www.patreon.com/8bitmusictheory \",\n  \"chapters\": \"<Untitled Chapter 1>; PLANING; MAIN MOTIF 2; MAIN MOTIF 3: VII\",\n  \"duration\": \"14 m 58 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": "8-bit music theory videos are always primarily narration, so non-music."
+    },
+    {
+      "question": "{\n  \"title\": \"Rhythm Quest - Gameplay Trailer (In Development)\",\n  \"channel\": \"DDRKirby(ISQ)\",\n  \"categories\": \"Gaming\",\n  \"description\": \"Wishlist now on Steam: https://store.steampowered.com/app/1635640/Rhythm_Quest/ Rhythm Quest is an upcoming 2-button chiptune music game being developed by DDRKirby(ISQ). Learn more at https://ddrkirb\",\n  \"chapters\": \"\",\n  \"duration\": \"1 m 35 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": "ddrkirby's music is always banger"
+    },
+    {
+      "question": "{\n  \"title\": \"\u6c92\u9748\u611f\uff1f\u7528\u96a8\u6a5f\u7522\u751f\u7684\u97f3\u4f86\u5beb\u6b4c\u5427\uff01\u4e82\u5beb\u4e5f\u53ef\u4ee5\uff5e\",\n  \"channel\": \"NiceChord (\u597d\u548c\u5f26)\",\n  \"categories\": \"Music\",\n  \"description\": \"\u597d\u548c\u5f26\u6709\u5b98\u65b9 Instagram \u56c9\uff0c\u5feb\u4f86\u8ffd\u8e64\uff1ahttps://www.instagram.com/nicechord_official/ \u597d\u548c\u5f26\u983b\u9053\u6c92\u6709\u958b\u555f YouTube \u5ee3\u544a\uff0c\u56e0\u6b64\u6211\u4e0d\u6703\u5f9e YouTube \u9019\u908a\u5f97\u5230\u4efb\u4f55\u6536\u5165\uff0c\u5982\u679c\u4f60\u89ba\u5f97\u597d\u548c\u5f26\u7684\u8ab2\u7a0b\u6709\u5e6b\u52a9\u5230\u4f60\uff0c\u8acb\u4f60\u8003\u616e\u8cfc\u8cb7\u300c\u5bb6\u5ead\u865f\u5927\u5305\u88dd\u300d\u4f86\u652f\u6301\u597d\u548c\u5f26\uff0c\u8b93\u597d\u548c\u5f26\u80fd\u5920\u7e7c\u7e8c\u63d0\u4f9b\u514d\u8cbb\u7684\u6559\u5b78\u7d66\u6240\u6709\u4eba\uff01\u5230\u4ee5\u4e0b\u7684\u9023\u7d50\u5594\uff1a \u597d\u548c\u5f26 220 \u96c6\u7d00\u5ff5\u7248\u5927\u5927\u5927\u5927\u5927\u5927\",\n  \"chapters\": \"\",\n  \"duration\": \"12 m 49 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": "many NiceChord videos are mostly narration, but some are mostly music. This one is narration."
+    },
+    {
+      "question": "{\n  \"title\": \"Line Riders - Beethoven's 5th\",\n  \"channel\": \"DoodleChaos\",\n  \"categories\": \"Entertainment\",\n  \"description\": \"I spent over 3 months synchronizing a line rider track to Beethoven's 5th drawing everything by hand. Any time a character leaves the screen they are being directed by unseen lines to the next locatio\",\n  \"chapters\": \"\",\n  \"duration\": \"4 m 26 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"AI evolves to compose 3 hours of jazz!\",\n  \"channel\": \"carykh\",\n  \"categories\": \"Gaming\",\n  \"description\": \"3 hours of Computery's music: https://www.youtube.com/watch?v=vvusi8EWzPc The training data was all composed by Doug McKenzie at http://www.bushgrafts.com/jazz/midi.htm. Here's some of those pieces of\",\n  \"chapters\": \"\",\n  \"duration\": \"18 m 8 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": "carykh never has a mostly-music video."
+    },
+    {
+      "question": "{\n  \"title\": \"how to scare a penguin\",\n  \"channel\": \"bill wurtz\",\n  \"categories\": \"People & Blogs\",\n  \"description\": \"http://billwurtz.com spotify: https://play.spotify.com/artist/78cT0dM5Ivm722EP2sgfDh itunes: http://itunes.apple.com/us/artist/bill-wurtz/id1019208137 twitter: http://twitter.com/billwurtz instagram: \",\n  \"chapters\": \"\",\n  \"duration\": \"11 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"OH MY DAYUM ft. @DaymDrops\",\n  \"channel\": \"schmoyoho\",\n  \"categories\": \"News & Politics\",\n  \"description\": \"the track on itunes- https://itunes.apple.com/us/album/oh-my-dayum-single/id553920419 (it's also streaming everywhere, even spotify & your grandmom's house) Daym's Channel: https://www.youtube.com/c/d\",\n  \"chapters\": \"\",\n  \"duration\": \"2 m 20 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"Incubus MD Main Theme but Beat 2 and 4 are Swapped\",\n  \"channel\": \"Daniel Chin\",\n  \"categories\": \"Science & Technology\",\n  \"description\": \"Original: https://soundcloud.com/zane-fadul/sets/incubus-md-ost Art: not_absent (https://www.instagram.com/not_absent/) Play the game: https://globalgamejam.org/2020/games/incubus-md-6\",\n  \"chapters\": \"\",\n  \"duration\": \"38 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"the funk guitar dojo\",\n  \"channel\": \"Louie Zong\",\n  \"categories\": \"Film & Animation\",\n  \"description\": \"had this idea bouncing around for a while!\",\n  \"chapters\": \"<Untitled Chapter 1>; slide up/down, or do hanner-ons and pull- offs to add character; the contrast \",\n  \"duration\": \"2 m 9 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"fresh micro-songs to make you say \\\"well that was interesting\\\"\",\n  \"channel\": \"Daniel Thrasher\",\n  \"categories\": \"Comedy\",\n  \"description\": \"Filippo Loreti just announced their Holiday sale! Click here https://cen.yt/filippodanielthrasher and use code DANIEL70 for up to 70% off your first limited edition luxury watch. The first 500 people \",\n  \"chapters\": \"<Untitled Chapter 1>; FILIPPO LORETI; FASHION ICON; LINK IN THE DESCRIPTION\",\n  \"duration\": \"4 m 20 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"when you turn on autopilot\",\n  \"channel\": \"Timothy Gondola\",\n  \"categories\": \"Music\",\n  \"description\": \"Join our Discord! https://discord.gg/xBmYHcm46u \ud83d\udcc3 Download Cory Henry's \\\"All I Do\\\" PDF & MIDI here: https://gondolamusic.com/shop/transcriptions \ud83c\udf10 Cory Henry's website: https://coryhenry.com/ \ud83c\udfac Origin\",\n  \"chapters\": \"\",\n  \"duration\": \"2 m 53 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": "timothy gondola has a lot of funny-titled high-quality music-only uploads."
+    },
+    {
+      "question": "{\n  \"title\": \"How to play \\\"Happy Birthday\\\" Like Beethoven, Chopin, Brahms, Bach and Mozart Piano by Nicole Pesce\",\n  \"channel\": \"Marcos Gama\",\n  \"categories\": \"Music\",\n  \"description\": \"Nicole Pesce in this video was inspired from Victor Borge performance. Follow me on Instagram \u2b07\ufe0f https://www.instagram.com/MarcosGamaPiano\",\n  \"chapters\": \"<Untitled Chapter 1>; June 24, 2011; Tempe Center for the Arts; Happy Birthday?\",\n  \"duration\": \"5 m 22 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"Bad Apple!! played on Windows 10 File Explorer\",\n  \"channel\": \"Junferno\",\n  \"categories\": \"Science & Technology\",\n  \"description\": \"I was surprised to see that this one didn't already exist on YouTube or Niconico (I did eventually find an obscure one on Bilibili but the quality was rather low), especially since it's quite simple i\",\n  \"chapters\": \"\",\n  \"duration\": \"4 m 14 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": "we have enough bad apples at home"
+    },
+    {
+      "question": "{\n  \"title\": \"Sounds of the Mandelbrot Set\",\n  \"channel\": \"CodeParade\",\n  \"categories\": \"Education\",\n  \"description\": \"Try it out now! https://codeparade.itch.io/fractal-sound-explorer Making music and sound effects directly from common fractals was an idea I though of one night, so I just had to try it out to see wha\",\n  \"chapters\": \"<Untitled Chapter 1>; The Burning Ship; Feather Fractal; SFX Fractal; Chirikov Map\",\n  \"duration\": \"9 m 32 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": "sound not good"
+    },
+    {
+      "question": "{\n  \"title\": \"ball & stick\",\n  \"channel\": \"bill wurtz\",\n  \"categories\": \"Film & Animation\",\n  \"description\": \"https://billwurtz.com spotify: https://play.spotify.com/artist/78cT0dM5Ivm722EP2sgfDh patreon: https://patreon.com/billwurtz itunes: https://itunes.apple.com/us/artist/bill-wurtz/id1019208137 pandora:\",\n  \"chapters\": \"\",\n  \"duration\": \"1 m 20 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"The Commodordion\",\n  \"channel\": \"lftkryo\",\n  \"categories\": \"Music\",\n  \"description\": \"A fully functional 8-bit accordion with bellows made out of floppy disks. Learn more about the project: https://linusakesson.net/commodordion/index.php Support my work on Patreon or Steady: https://pa\",\n  \"chapters\": \"The set-up; The performance; The montage; The tale; The end\",\n  \"duration\": \"11 m 27 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"Rhythm Purgatory\",\n  \"channel\": \"Louie Zong\",\n  \"categories\": \"Film & Animation\",\n  \"description\": \"happy april fool's day lol\",\n  \"chapters\": \"\",\n  \"duration\": \"1 m 6 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"Barcoders Jamming\",\n  \"channel\": \"ELECTRONICOS FANTASTICOS!\",\n  \"categories\": \"People & Blogs\",\n  \"description\": \"Barcoders Jamming! Barcoder: generates sounds by connecting scan-signals of a barcode scanner to a powered speaker directly not a cash register. During the day, you are a regular cashier. During the n\",\n  \"chapters\": \"\",\n  \"duration\": \"59 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"BASS MEETS BASS\",\n  \"channel\": \"Davie504\",\n  \"categories\": \"Entertainment\",\n  \"description\": \"I ate the bass after shooting this video...\",\n  \"chapters\": \"\",\n  \"duration\": \"38 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"24 STRINGS BASS SOLO\",\n  \"channel\": \"Davie504\",\n  \"categories\": \"Entertainment\",\n  \"description\": \"Playing the only 24 Strings Bass Guitar ever made. It's called \\\"Godzilla\\\"... Such a crazy instrument, hope you'll like it :) It is the only 24 strings bass in the world. Thanks for 1 Million subscribe\",\n  \"chapters\": \"\",\n  \"duration\": \"3 m 1 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"How many grooves can you get from a water drop?\",\n  \"channel\": \"Publio Delgado\",\n  \"categories\": \"Music\",\n  \"description\": \"Support me on Patreon\u2193 http://www.patreon.com/publio Follow me on Instagram\u2193 http://www.instagram.com/publiodb Music can be found in the most unimaginable places. In this case I got inspired by a wate\",\n  \"chapters\": \"<Untitled Chapter 1>; Groove #2; Groove #3; Groove #4; Groove #5; Groove #6\",\n  \"duration\": \"4 m 12 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"HAPPY 50TH WOODSY\",\n  \"channel\": \"Louie Zong\",\n  \"categories\": \"Film & Animation\",\n  \"description\": \"woodsy owl's fifty today! this old bird! https://www.fs.usda.gov/woodsy-owl quinne - vox louie - instruments + vox\",\n  \"chapters\": \"<Untitled Chapter 1>; 50 years of playing second fiddle to a bear; smokey gets the glory, it's not f\",\n  \"duration\": \"45 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"Terrible Counterpoint in Mozart's \\\"A Musical Joke\\\" (\\\"Ein Musikalischer Spa\u00df\\\")\",\n  \"channel\": \"Richard Atkinson\",\n  \"categories\": \"Music\",\n  \"description\": \"Please support this channel on Patreon: https://www.patreon.com/RichardAtkinson Richard Atkinson discusses the intentionally terrible counterpoint in Mozart\u2019s K. 522 Divertimento, entitled \u201cEin musika\",\n  \"chapters\": \"First movement; Second movement; Third movement; Fourth movement\",\n  \"duration\": \"22 m 24 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"SING A NOTE\",\n  \"channel\": \"Louie Zong\",\n  \"categories\": \"Film & Animation\",\n  \"description\": \"i asked people to sing a note! then i made something with it. this could've been a bit more GRAND but i'm happy to have finished it at all lol\",\n  \"chapters\": \"\",\n  \"duration\": \"2 m 51 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": "unlike louie zong, this one is mostly a demo with narrations"
+    },
+    {
+      "question": "{\n  \"title\": \"kid's guitar blues\",\n  \"channel\": \"Louie Zong\",\n  \"categories\": \"Film & Animation\",\n  \"description\": \"this lil pink guitar is suprisingly decent sounding in open tuning with a slide! not that good for much else lol...\",\n  \"chapters\": \"\",\n  \"duration\": \"40 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"Deltarune - Megalovania but beats 2 and 4 are swapped\",\n  \"channel\": \"Adventures with a minecraft noob\",\n  \"categories\": \"Education\",\n  \"description\": \"sancerness Credits: DannieloCQ Music! for Deltarune - Megalovania \u2014 Yukiko \u2014 for the idea to swap beats 2 and 4\",\n  \"chapters\": \"\",\n  \"duration\": \"5 m 21 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": "beat swaping is always good music"
+    },
+    {
+      "question": "{\n  \"title\": \"Duet for French Horn and chair\",\n  \"channel\": \"Aitor Merino Mart\u00ednez\",\n  \"categories\": \"Education\",\n  \"description\": \"Duet for French Horn and chair\",\n  \"chapters\": \"\",\n  \"duration\": \"16 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"Field of Hopes and Dreams - Deltarune Chapter 1 (Super Mario Paint Cover)\",\n  \"channel\": \"CyanSixFour\",\n  \"categories\": \"Gaming\",\n  \"description\": \"If you liked this video, please leave a like and subscribe for more content! And be sure to leave a comment too, they're good for the YouTube algorithm! If you're interested in Mario Paint, come and c\",\n  \"chapters\": \"\",\n  \"duration\": \"8 m 40 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"The Coltrane Fractal\",\n  \"channel\": \"Adam Neely\",\n  \"categories\": \"Film & Animation\",\n  \"description\": \"What do 200k notes in 6 seconds sound like? No, the result isn\u2019t Black Midi - it\u2019s way cooler than that. if you use the right math, you can create recursive melodies that rely upon the fact that your \",\n  \"chapters\": \"<Untitled Chapter 1>; MUSICAL FRACTAL; HARMONIC POLYRHYTHMS; (OVERTONE) SERIES\",\n  \"duration\": \"9 m 11 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"guys something is wrong with my portals\",\n  \"channel\": \"Krzyhau\",\n  \"categories\": \"Comedy\",\n  \"description\": \"but i dont mind lol Sources: \\\"You'll Be Perfect\\\" by Mike Morawsky (Portal 2 OST) \\\"Spanish Flea - Trap remix\\\" by Nayar\",\n  \"chapters\": \"\",\n  \"duration\": \"2 m 8 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"ARpreggiator\",\n  \"channel\": \"Zack Lee\",\n  \"categories\": \"People & Blogs\",\n  \"description\": \"The ARpeggiator is a collaborative augmented reality (AR) music-making application that works in Chrome on Android devices allowing multiple users to make music together in real-time by creating spher\",\n  \"chapters\": \"\",\n  \"duration\": \"1 m 53 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"Tritone Paradox\",\n  \"channel\": \"Tritone Science Fair\",\n  \"categories\": \"Music\",\n  \"description\": \"4 examples of the tritone paradox. Please take 2 minutes to fill out the short survey that goes with this video http://goo.gl/forms/0bQXFFw7Yg I do not own any of these sounds, I am using them for an \",\n  \"chapters\": \"\",\n  \"duration\": \"16 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"\u200b\",\n  \"channel\": \"\ufe0eA\",\n  \"categories\": \"Education\",\n  \"description\": \"\u6d77\u5e95 \u30ea\u30b9\u30da\u30af\u30c8\",\n  \"chapters\": \"\",\n  \"duration\": \"4 m 40 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": "channel \"A\" uploads only music with weird titles"
+    },
+    {
+      "question": "{\n  \"title\": \"\u201cThe Moments\u201d | For NYU Shanghai's Class of 2021\",\n  \"channel\": \"NYU Shanghai\",\n  \"categories\": \"Education\",\n  \"description\": \"In this music video, the Class of 2021 reenacted \u201cThe Moments\u201d \u300a\u5fc6\u300bfrom their years at NYU Shanghai \u2014from moving into dorms, studying away, persevering through COVID-19, to reuniting for graduation. Th\",\n  \"chapters\": \"<Untitled Chapter 1>; EGB and EAP, I wanna scream; The road is bumpy here; Late night essays; Anthro\",\n  \"duration\": \"5 m 6 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"Music In A 4D World - 4D Golf Devlog #4\",\n  \"channel\": \"CodeParade\",\n  \"categories\": \"Education\",\n  \"description\": \"For a multidimensional game like 4D Golf, we decided to build a soundtrack to give it the same dynamic feeling using some interesting techniques. Once again, the musical mastermind philmakesnoise, who\",\n  \"chapters\": \"\",\n  \"duration\": \"4 m 49 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"0 STRINGS BASS SOLO\",\n  \"channel\": \"Davie504\",\n  \"categories\": \"Entertainment\",\n  \"description\": \"Playing a Bass Guitar with zero strings = done All the sounds come from the bass guitar parts and I applied heavy EQs and FXs (and even pitch shift for the jack buzz sound) to them in order to get the\",\n  \"chapters\": \"\",\n  \"duration\": \"2 m 47 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"When A Jazz Musician Does A POP Recording Session...\",\n  \"channel\": \"CharlesBerthoud\",\n  \"categories\": \"Music\",\n  \"description\": \"Go to https://NordVPN.com/berthoud and use code BERTHOUD to get a 2-year plan plus 1 additional month with a huge discount. It\u2019s risk free with Nord\u2019s 30 day money-back guarantee! This is what happens\",\n  \"chapters\": \"\",\n  \"duration\": \"5 m 28 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"where i've been\",\n  \"channel\": \"bill wurtz\",\n  \"categories\": \"Music\",\n  \"description\": \"https://billwurtz.com spotify: https://play.spotify.com/artist/78cT0dM5Ivm722EP2sgfDh patreon: https://patreon.com/billwurtz yt music: https://music.youtube.com/channel/UCeATCXpa1wVcGWSl9rWmI2g apple:\",\n  \"chapters\": \"\",\n  \"duration\": \"3 m 38 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": "bill wurtz music videos are epic"
+    },
+    {
+      "question": "{\n  \"title\": \"Mount St. Helens is about to Blow Up\",\n  \"channel\": \"bill wurtz\",\n  \"categories\": \"Music\",\n  \"description\": \"https://billwurtz.com spotify: https://play.spotify.com/artist/78cT0dM5Ivm722EP2sgfDh patreon: https://patreon.com/billwurtz itunes: https://itunes.apple.com/us/artist/bill-wurtz/id1019208137 twitch: \",\n  \"chapters\": \"\",\n  \"duration\": \"3 m 23 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": "bill wurtz"
+    },
+    {
+      "question": "{\n  \"title\": \"When you just wanna vibe\",\n  \"channel\": \"Daniel Thrasher\",\n  \"categories\": \"Comedy\",\n  \"description\": \"Go to http://www.audible.com/danielthrasher or text danielthrasher to 500500 to get a free Audiobook, 2 free Audible Originals, and a 30-day free trial. This video features my new Clavinova CVP-809 fr\",\n  \"chapters\": \"\",\n  \"duration\": \"4 m 19 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"\u66f4\uff01\u6211\u88ab\u7248\u6b0a\u6d41\u5fd9\u5011\u96c6\u9ad4\u58e9\u9234\u4e86\uff5e\uff08\u5c0d\u6211\u662f\u6545\u610f\u6253\u932f\u5b57\u7684\uff09\",\n  \"channel\": \"NiceChord (\u597d\u548c\u5f26)\",\n  \"categories\": \"Music\",\n  \"description\": \"\",\n  \"chapters\": \"\",\n  \"duration\": \"3 m 26 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"when you wanna be a serious musician but you discover MEMES...\",\n  \"channel\": \"Davie504\",\n  \"categories\": \"Entertainment\",\n  \"description\": \"Once as you discover memes you can't go back... Especially if you use a meme instrument... the otamatone. Leave a comment and I'll answer you (only if you smashed like and subscribed) TABS and Backing\",\n  \"chapters\": \"\",\n  \"duration\": \"1 m 30 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"ball & stick\",\n  \"channel\": \"bill wurtz\",\n  \"categories\": \"Film & Animation\",\n  \"description\": \"https://billwurtz.com spotify: https://play.spotify.com/artist/78cT0dM5Ivm722EP2sgfDh patreon: https://patreon.com/billwurtz itunes: https://itunes.apple.com/us/artist/bill-wurtz/id1019208137 pandora:\",\n  \"chapters\": \"\",\n  \"duration\": \"1 m 20 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"do re mi\",\n  \"channel\": \"bill wurtz\",\n  \"categories\": \"People & Blogs\",\n  \"description\": \"http://billwurtz.com patreon: http://patreon.com/billwurtz spotify: https://play.spotify.com/artist/78cT0dM5Ivm722EP2sgfDh itunes: http://itunes.apple.com/us/artist/bill-wurtz/id1019208137 twitter: ht\",\n  \"chapters\": \"\",\n  \"duration\": \"7 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"Rhythm Quest - Sneak Peek #13\",\n  \"channel\": \"DDRKirby(ISQ)\",\n  \"categories\": \"Gaming\",\n  \"description\": \"Wishlist on Steam: https://store.steampowered.com/app/1635640/Rhythm_Quest/ Rhythm Quest is an upcoming 2-button chiptune music game being developed by DDRKirby(ISQ). Learn more at https://rhythmquest\",\n  \"chapters\": \"\",\n  \"duration\": \"2 m 9 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"Glass Armonica (spinning glass bowls... that break)\",\n  \"channel\": \"Rob Scallon\",\n  \"categories\": \"Music\",\n  \"description\": \"Get those fingers pruney and definitely don't press too hard. Dennis James: https://www.facebook.com/dennis.james.395 Fascinating instruments playlist: https://youtube.com/playlist?list=PLjRyh8JaC_eSH\",\n  \"chapters\": \"<Untitled Chapter 1>; Speed Control; Electric Motor; Adjusting the Speed for every Note; Symptoms\",\n  \"duration\": \"24 m 23 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"The 5/4 Trick - How Harry Connick Jr. tricked an entire audience\",\n  \"channel\": \"Joshua Surufka\",\n  \"categories\": \"Music\",\n  \"description\": \"Thanks for watching! Also, The numbers for the beats and claps are a little out of sync at parts, but I made this whole thing in Movie Maker so this was the most accurate I could get.\",\n  \"chapters\": \"\",\n  \"duration\": \"4 m 46 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"ghost + guest \ud83d\udc7b\ud83c\udfb6\",\n  \"channel\": \"Louie Zong\",\n  \"categories\": \"Film & Animation\",\n  \"description\": \"yes! they are back! and with a new friend!\",\n  \"chapters\": \"\",\n  \"duration\": \"53 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"when you turn on autopilot\",\n  \"channel\": \"Timothy Gondola\",\n  \"categories\": \"Music\",\n  \"description\": \"Join our Discord! https://discord.gg/xBmYHcm46u \ud83d\udcc3 Download Cory Henry's \\\"All I Do\\\" PDF & MIDI here: https://gondolamusic.com/shop/transcriptions \ud83c\udf10 Cory Henry's website: https://coryhenry.com/ \ud83c\udfac Origin\",\n  \"chapters\": \"\",\n  \"duration\": \"2 m 53 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"\u597d\u548c\u5f26\u7684\u3010\u807d\u529b\u5c0b\u5bf6\u3011\u97f3\u6a02\u6e2c\u9a57\u904a\u6232\uff0c\u6240\u6709\u984c\u76ee\u89e3\u6790\uff01\",\n  \"channel\": \"NiceChord (\u597d\u548c\u5f26)\",\n  \"categories\": \"Music\",\n  \"description\": \"\u9084\u6c92\u73a9\u904e\u7684\u5148\u53bb\u73a9\u5594\uff1ahttps://www.youtube.com/watch?v=6T45klBhndU \u597d\u548c\u5f26\u983b\u9053\u6c92\u6709\u958b\u555f YouTube \u5ee3\u544a\uff0c\u56e0\u6b64\u6211\u4e0d\u6703\u5f9e YouTube \u9019\u908a\u5f97\u5230\u4efb\u4f55\u6536\u5165\uff0c\u5982\u679c\u4f60\u89ba\u5f97\u597d\u548c\u5f26\u7684\u8ab2\u7a0b\u6709\u5e6b\u52a9\u5230\u4f60\uff0c\u8acb\u4f60\u8003\u616e\u8cfc\u8cb7\u300c\u5bb6\u5ead\u865f\u5927\u5305\u88dd\u300d\u4f86\u652f\u6301\u597d\u548c\u5f26\uff0c\u8b93\u597d\u548c\u5f26\u80fd\u5920\u7e7c\u7e8c\u63d0\u4f9b\u514d\u8cbb\u7684\u6559\u5b78\u7d66\u6240\u6709\u4eba\uff01\u5230\u4ee5\u4e0b\u7684\u9023\u7d50\u5594\uff1a \u597d\u548c\u5f26 220 \u96c6\u7d00\u5ff5\u7248\u5927\u5927\u5927\u5927\u5927\u5927\u5927\u5927\u5927\u5927\u5305\u88dd\uff1ahttps://g\",\n  \"chapters\": \"\u7c21\u4ecb; \u7528\u884c\u52d5\u652f\u6301\u597d\u548c\u5f26; \u7b49\u4e00\u4e0b\u6703\u9023\u7e8c\u64ad\u653e\u4e09\u500b\u97f3\u6a02\u7247\u6bb5, \u4ed4\u7d30\u6ce8\u610f\u4e09\u500b\u97f3\u6a02\u7247\u6bb5\u7684\u901f\u5ea6, \u7136\u5f8c\u56de\u7b54\u7b49\u4e00\u4e0b\u7684\u554f\u984c; \u5169\u500b\u97f3\u6a02\u7247\u6bb5, \u662f\u5b8c\u5168\u76f8\u540c\u7684\u97f3\u6a02,\u53ea\u662f\u79fb\u5230\u4e0d\u540c\u7684\u8a13, \u9084\u662f\u9023\u97f3\u6a02\u672c\u8eab\u4e5f\u4e0d\u592a\u4e00\u6a23\u5462?; \",\n  \"duration\": \"12 m 37 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"Barcoders Jamming\",\n  \"channel\": \"ELECTRONICOS FANTASTICOS!\",\n  \"categories\": \"People & Blogs\",\n  \"description\": \"Barcoders Jamming! Barcoder: generates sounds by connecting scan-signals of a barcode scanner to a powered speaker directly not a cash register. During the day, you are a regular cashier. During the n\",\n  \"chapters\": \"\",\n  \"duration\": \"59 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"sing a really dumb song\",\n  \"channel\": \"bill wurtz\",\n  \"categories\": \"People & Blogs\",\n  \"description\": \"http://billwurtz.com spotify: https://play.spotify.com/artist/78cT0dM5Ivm722EP2sgfDh itunes: http://itunes.apple.com/us/artist/bill-wurtz/id1019208137 twitter: http://twitter.com/billwurtz instagram: \",\n  \"chapters\": \"\",\n  \"duration\": \"5 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"what is love?\",\n  \"channel\": \"bill wurtz\",\n  \"categories\": \"People & Blogs\",\n  \"description\": \"http://billwurtz.com patreon: http://patreon.com/billwurtz spotify: https://play.spotify.com/artist/78cT0dM5Ivm722EP2sgfDh itunes: http://itunes.apple.com/us/artist/bill-wurtz/id1019208137 twitter: ht\",\n  \"chapters\": \"\",\n  \"duration\": \"27 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"here have some ringtones\",\n  \"channel\": \"Daniel Thrasher\",\n  \"categories\": \"Comedy\",\n  \"description\": \"\ud83c\udf0f Get exclusive NordVPN deal here \u27b5 https://NordVPN.com/danielthrasher It\u2019s risk free with Nord\u2019s 30 day money-back guarantee!\u270c\ufe0f -- I got merch! https://www.hoodieguy.shop -- Follow these too, if ya w\",\n  \"chapters\": \"\",\n  \"duration\": \"6 m 16 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"Inspector Cabanela\",\n  \"channel\": \"Kiku\",\n  \"categories\": \"Gaming\",\n  \"description\": \"The man who dances through life.\",\n  \"chapters\": \"\",\n  \"duration\": \"57 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"Christmas Songs, but they're in a 15/16 time signature\",\n  \"channel\": \"Adam Neely\",\n  \"categories\": \"Education\",\n  \"description\": \"Christmas tunes featuring @insaneintherainmusic , @ShawnCrowder and @BrianKrock! Get CuriosityStream AND Nebula for less than $12 per year (41% off!) https://curiositystream.com/adamneely insaneinther\",\n  \"chapters\": \"Intro; God Rest Ye Merry Gentlemen; Analysis (aksak 4/4); Christmastime is Here; Analysis (spicy 3/4\",\n  \"duration\": \"16 m 36 s\"\n}",
+      "no_or_yes": 0,
+      "explanation": null
+    },
+    {
+      "question": "{\n  \"title\": \"snowy silence\",\n  \"channel\": \"ASmolBoy\",\n  \"categories\": \"Gaming\",\n  \"description\": \"https://www.youtube.com/playlist?list=PL5N426q2-uyw3JU0uQ0kKboqXSDs7fB5N https://soundcloud.com/asmolboy/snowy-silence\",\n  \"chapters\": \"\",\n  \"duration\": \"2 m 16 s\"\n}",
+      "no_or_yes": 1,
+      "explanation": null
+    }
   ]
 }
