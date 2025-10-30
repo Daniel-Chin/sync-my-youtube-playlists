@@ -9,9 +9,9 @@ from gpt_arbiter_human_in_loop import (
 # import os
 # os.remove(RW_JSON_PATH)
 
-META = './liked/meta-enriched.jsonl'
-PROMPT_AND_EXAMPLES_FILENAME = './liked/prompt_and_examples.json'
-RW_JSON_PATH = './liked/classifications.json'
+META = './meta-enriched.jsonl'
+PROMPT_AND_EXAMPLES_FILENAME = './prompt_and_examples.json'
+RW_JSON_PATH = './classifications.json'
 LAMBDA = 20
 MODEL = 'gpt-4o-mini'
 
