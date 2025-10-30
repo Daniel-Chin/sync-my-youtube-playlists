@@ -1,4 +1,5 @@
 {
+  "file_path": "./liked/prompt_and_examples.json",
   "prompt": "## Instruction\nDetermine if the YouTube video is primarily music. Respond with a SINGLE WORD immediately without thinking: \"Yes\" or \"No\".\n\n## Examples\n{EXAMPLES}\n\n## Input\n{CLASSIFIEE}\n\nIs it music? Reply with one word only: \"Yes\" or \"No\".",
   "examples": [
   ]

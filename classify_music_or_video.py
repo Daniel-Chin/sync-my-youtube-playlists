@@ -44,11 +44,11 @@ def main():
         duration = duration.removeprefix('0 m ')
 
         return json.dumps(dict(
-            title      =singleLine(title      )[:60],
+            title      =singleLine(title      )[:100],
             channel    =singleLine(channel    )[:60],
             categories =singleLine(categories )[:60],
-            description=singleLine(description)[:60],
-            chapters   =singleLine(chapters   )[:60],
+            description=singleLine(description)[:200],
+            chapters   =singleLine(chapters   )[:100],
             duration   =singleLine(duration   )[:60],
         ), indent=2, ensure_ascii=False)
 
