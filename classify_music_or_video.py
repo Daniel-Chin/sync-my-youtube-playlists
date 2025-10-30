@@ -1,16 +1,19 @@
 import json
-import random
 
-from gpt_arbiter_human_in_loop import ArbiterHiLUI, ArbiterDummy
+from gpt_arbiter_human_in_loop import (
+    ArbiterHiLUI, initClients,
+    # ArbiterDummy, 
+    ArbiterGPT, 
+)
+
+# import os
+# os.remove(RW_JSON_PATH)
 
 META = './liked/meta-enriched.jsonl'
 PROMPT_AND_EXAMPLES_FILENAME = './liked/prompt_and_examples.json'
 RW_JSON_PATH = './liked/classifications.json'
 LAMBDA = 20
-MODEL = 'gpt-5-nano'
-
-# import os
-# os.remove(RW_JSON_PATH)
+MODEL = 'gpt-4o-mini'
 
 def MetaLoader():
     with open(META, 'r', encoding='utf-8') as f:
@@ -21,9 +24,10 @@ def singleLine(s: str) -> str:
     return ' '.join(s.split())
 
 def main():
+    arbiter = ArbiterGPT(*initClients())
+
     d = { x['id']: x for x in MetaLoader() }
     all_ids = [*d.keys()]
-    random.shuffle(all_ids) # i.i.d. is important
     def idToClassifiee(id_: str) -> str:
         entry = d[id_]
 
@@ -53,7 +57,7 @@ def main():
         ), indent=2, ensure_ascii=False)
 
     ui = ArbiterHiLUI(
-        arbiter=ArbiterDummy(),
+        arbiter=arbiter,
         prompt_and_examples_filename=PROMPT_AND_EXAMPLES_FILENAME,
         all_ids=all_ids,
         idToClassifiee=idToClassifiee,
