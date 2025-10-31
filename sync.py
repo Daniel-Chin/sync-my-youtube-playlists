@@ -5,23 +5,41 @@ maybe: remove `ARCHIVE_FILE` entries if local file not found?
 
 import subprocess
 import os
+import json
 
-from my_secrets import PLAYLIST_ID, PLAYLIST_NAME
+# from my_secrets import PLAYLIST_ID, PLAYLIST_NAME
+
+LIKED = 'LIKED'
+
+PLAYLIST_ID, PLAYLIST_NAME = LIKED, 'liked/songs'
 
 ARCHIVE_FILE = 'downloaded.txt'
 EXT = 'mp3'
 
+LIKED_LIST = '../music_ids.txt'
+LIKED_META = '../meta-enriched.jsonl'
+
 def download():
-    url = f'https://www.youtube.com/playlist?list={PLAYLIST_ID}'
-    cmd = [
-        'yt-dlp',
-        '-x', '--audio-format', EXT,
-        '--embed-metadata', '--embed-thumbnail', '--add-metadata',
-        '--download-archive', ARCHIVE_FILE,
-        '-o', ' - %(title)s [%(id)s].%(ext)s',
-        url,
-    ]
-    print(f'Running yt-dlp to sync: {url}')
+    if PLAYLIST_ID is LIKED:
+        cmd = [
+            'yt-dlp',
+            '-x', '--audio-format', EXT,
+            '--embed-metadata', '--embed-thumbnail', '--add-metadata',
+            '--download-archive', ARCHIVE_FILE,
+            '-o', ' - %(title)s [%(id)s].%(ext)s',
+            '-a', LIKED_LIST,
+        ]
+    else:
+        url = f'https://www.youtube.com/playlist?list={PLAYLIST_ID}'
+        cmd = [
+            'yt-dlp',
+            '-x', '--audio-format', EXT,
+            '--embed-metadata', '--embed-thumbnail', '--add-metadata',
+            '--download-archive', ARCHIVE_FILE,
+            '-o', ' - %(title)s [%(id)s].%(ext)s',
+            url,
+        ]
+        print(f'Running yt-dlp to sync: {url}')
     try:
         subprocess.run(cmd, check=True)
     except subprocess.CalledProcessError as e:
@@ -33,23 +51,31 @@ def download():
         # input()
 
 def getPlaylistEntries() -> list[tuple[str, str]]:
-    result = subprocess.run(
-        [
-            'yt-dlp', '--flat-playlist', '--print', 
-            '%(id)s\t%(title)s', 
-            f'https://www.youtube.com/playlist?list={PLAYLIST_ID}', 
-        ],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        encoding='utf-8',
-        check=True,
-    )
-    entries = []
-    for line in result.stdout.strip().split('\n'):
-        if '\t' in line:
-            video_id, title = line.strip().split('\t', 1)
-            entries.append((video_id, title))
-    return entries
+    if PLAYLIST_ID is LIKED:
+        with open(LIKED_META, 'r', encoding='utf-8') as f:
+            entries = []
+            for line in f:
+                d = json.loads(line)
+                entries.append((d['id'], d['title']))
+            return entries
+    else:
+        result = subprocess.run(
+            [
+                'yt-dlp', '--flat-playlist', '--print', 
+                '%(id)s\t%(title)s', 
+                f'https://www.youtube.com/playlist?list={PLAYLIST_ID}', 
+            ],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            encoding='utf-8',
+            check=True,
+        )
+        entries = []
+        for line in result.stdout.strip().split('\n'):
+            if '\t' in line:
+                video_id, title = line.strip().split('\t', 1)
+                entries.append((video_id, title))
+        return entries
 
 def renameLazy(src: str, dest: str):
     if src != dest:
@@ -64,6 +90,9 @@ def cleanTitle(title: str) -> str:
     return x
 
 def reindexFiles():
+    '''
+    For when the playlist changes order.  
+    '''
     print('Reindexing files...')
     entries = getPlaylistEntries()
     remaining_local_files = set(os.listdir('.'))
@@ -91,7 +120,7 @@ def reindexFiles():
 def main():
     os.chdir(PLAYLIST_NAME)
     download()
-    reindexFiles()
+    # reindexFiles()
     os.chdir('..')
 
 if __name__ == '__main__':
