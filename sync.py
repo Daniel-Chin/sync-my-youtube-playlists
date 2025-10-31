@@ -16,7 +16,7 @@ PLAYLIST_ID, PLAYLIST_NAME = LIKED, 'liked/songs'
 ARCHIVE_FILE = 'downloaded.txt'
 EXT = 'mp3'
 
-LIKED_LIST = '../music_ids.txt'
+LIKED_LIST = '../good_music_ids.txt'
 LIKED_META = '../meta-enriched.jsonl'
 
 def download():
@@ -120,7 +120,7 @@ def reindexFiles():
 def main():
     os.chdir(PLAYLIST_NAME)
     download()
-    # reindexFiles()
+    reindexFiles()
     os.chdir('..')
 
 if __name__ == '__main__':
